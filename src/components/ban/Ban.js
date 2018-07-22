@@ -8,7 +8,7 @@ class Ban extends Component {
         return (
             <div className="flex-row">
                 <div className="champion-pool">
-                    <h1 style={{textAlign: 'center'}}>Ban</h1>
+                    <h1 style={{textAlign: 'center'}}>Bans</h1>
                     
                     <Lane lane="Ban" />
                 </div>

@@ -35,8 +35,11 @@ class Champion extends Component {
             onDragStart={(e) => this.drag(e, this.state.champion)}
             onClick={click}
             >
-        <div style={imageStyle}></div>
-        <div style={{textAlign: 'center', width: image.w, fontSize: 12}}>{this.state.champion.name}</div>
+        <div className="image" style={imageStyle}></div>
+        <div className="middle">
+          <div className="text">{this.state.champion.name}</div>
+        </div>
+        <div className="champion-name" style={{width: image.w}}>{this.state.champion.name}</div>
       </div>
     );
   }

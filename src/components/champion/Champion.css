@@ -3,7 +3,43 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    font-size: 0.75rem;
     width: 88px;
     height: 86px;
+    text-align: 'center';
+    position: relative;
+}
+
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+  
+.champion:hover {
+    cursor: grab;
+}
+
+.champion:hover .image {
+    opacity: 0.5;
+}
+
+.champion:hover .middle {
+    opacity: 1;
+}
+
+.champion:hover .champion-name {
+    display: none;
+}
+
+.text {
+    background-color: #6699CC;
+    color: white;
+    font-size: 16px;
+    padding: 5px;
 }

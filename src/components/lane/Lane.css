@@ -1,6 +1,6 @@
 .lane {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
 }
 
@@ -8,18 +8,27 @@
     padding-bottom: 50px;
 }
 
+.no-results {
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+}
+
 .title {
-    
+    transform: rotate(270deg);
+    width: 8%;
 }
 
 .list {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    flex-grow: 1;
+    border-radius: 1rem;
+    background-color: #C0C0C0;
 }
 
 .deleteable:hover {
-    font-weight: bolder;
     background-position: center;
     background-image: url("../../images/red-x.png");
 }

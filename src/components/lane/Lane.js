@@ -46,7 +46,7 @@ class Lane extends Component {
             <div className="title">{this.state.lane}</div>
             <div className="list">
                 {
-                    champions.length === 0 ? <div>None yet! Drag and drop to add.</div> 
+                    champions.length === 0 ? <div className="no-results">Drag and drop to add</div> 
                     : champions.map(champion => {
                         return <Champion key={champion.id} champion={champion} onDelete={() => this.onDelete(champion)}/>
                     })
