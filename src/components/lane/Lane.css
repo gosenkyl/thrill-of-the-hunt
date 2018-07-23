@@ -12,14 +12,17 @@
     padding: 10px;
     width: 100%;
     text-align: center;
+    align-self: center;
 }
 
 .title {
     transform: rotate(270deg);
     width: 8%;
+    text-align: center;
 }
 
 .list {
+    min-height: 86px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

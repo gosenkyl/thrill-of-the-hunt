@@ -6,7 +6,7 @@
     font-size: 0.75rem;
     width: 88px;
     height: 86px;
-    text-align: 'center';
+    text-align: center;
     position: relative;
 }
 
@@ -39,7 +39,7 @@
 
 .text {
     background-color: #6699CC;
-    color: white;
-    font-size: 16px;
+    color: #FFFFFF;
+    font-size: 1.25rem;
     padding: 5px;
 }
