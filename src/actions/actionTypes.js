@@ -1,0 +1,2 @@
+export const GET_CHAMPIONS = "GET_CHAMPIONS";
+export const SET_CHAMPIONS = "SET_CHAMPIONS";

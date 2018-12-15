@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './ChampionList.css';
 import Champion from '../champion/Champion';
-import ChampionService from '../../services/ChampionService';
 import Loading from '../loading/Loading';
 
 class ChampionList extends Component {
@@ -9,25 +8,33 @@ class ChampionList extends Component {
         super(props);
 
         this.state = {
-            isLoading: true,
-            champions: [],
-            filteredChampions: []
+            isLoading: false,
+            champions: this.props.champions,
+            filteredChampions: this.props.champions
         };
     }
 
-    async componentDidMount(){
-        //let result = await fetch("http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion.json");
-       // let json = await result.json();
+    componentDidUpdate(prevProps){
+        if(this.props.champions.length !== prevProps.champions.length){
+            this.setState({
+                champions: this.props.champions,
+                filteredChampions: this.props.champions
+            });
+        }
+    }
+
+    /*async componentDidMount(){
+        let result = await fetch("http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion.json");
+        let json = await result.json();
         
-        let data = await new ChampionService().getChampions();
-        let champions = Object.entries(data).map(champion => champion[1]);
+        let champions = Object.entries(json.data).map(champion => champion[1]);
     
         this.setState({
           isLoading: false,
           champions: champions,
           filteredChampions: champions
         });
-    }
+    }*/
 
     onFilter(searchText){
         let filteredChampions = this.state.champions.filter(champion => {

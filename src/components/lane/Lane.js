@@ -8,34 +8,39 @@ class Lane extends Component {
     super(props);
 
     this.state = {
-        isLoading: true,
+        isLoading: false,
         lane: this.props.lane,
-        champions: []
+        champions: [],
+        savedChampions: []
     };
   }
 
-  async componentDidMount(){
-    let savedChampions = this.loadFromLocalStorage();
+  componentDidMount(){
+      this.setState({
+        savedChampions: this.loadFromLocalStorage()
+      });
+  }
 
-    let champions = [];
-    if(savedChampions && savedChampions.length > 0){
-        let result = await fetch("http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion.json");
-        let json = await result.json();
-        let data = json.data;
-        
-        savedChampions.forEach(savedChampion => {
-            let champion = data[savedChampion.championId];
-            
-            if(champion){
-                champions.push(champion);
-            }
+  componentDidUpdate(prevProps){
+      if(this.props.champions.length !== prevProps.champions.length){
+        let results = [];
+        let champions = this.props.champions;
+        let savedChampions = this.state.savedChampions;
+
+        if(savedChampions && savedChampions.length > 0){
+            savedChampions.forEach(savedChampion => {
+                let champion = champions.find(champion => champion.id === savedChampion.championId);
+                
+                if(champion){
+                    results.push(champion);
+                }
+            });
+        }
+    
+        this.setState({
+            champions: results
         });
     }
-
-    this.setState({
-        isLoading: false,
-        champions: champions
-      });
   }
 
   render(){

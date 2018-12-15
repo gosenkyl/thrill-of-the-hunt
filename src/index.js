@@ -8,13 +8,19 @@ import Ban from './components/ban/Ban';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-ReactDOM.render((
-    <Router>
-        <div>
-            <Header />
+import configureStore from './store/configureStore';
+import { Provider } from 'react-redux';
 
-            <Route exact path='/' component={Pick} />
-            <Route exact path='/ban' component={Ban} />
-        </div>
-    </Router>
+const store = configureStore();
+
+ReactDOM.render((
+    <Provider store={store}>
+        <Router>
+            <div>
+                <Header />
+                <Route exact path='/' component={Pick} />
+                <Route exact path='/ban' component={Ban} />
+            </div>
+        </Router>
+    </Provider>
 ), document.getElementById('root'));
